@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://coj5ytsj0yaa4"]
+
+[ext_resource type="Script" path="res://list_element.gd" id="1_xfpe7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31ct2"]
+bg_color = Color(1, 1, 1, 0.0196078)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hixfk"]
+bg_color = Color(0, 0, 0, 0.129412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpkmj"]
+bg_color = Color(0, 0, 0, 0.0588235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jv3tk"]
+bg_color = Color(0, 0, 0, 0.176471)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpxr2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="list_element" type="Control"]
+custom_minimum_size = Vector2(274, 40)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 274.0
+offset_bottom = 40.0
+script = ExtResource("1_xfpe7")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 274.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_31ct2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 270.0
+offset_bottom = 40.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.87
+
+[node name="Label" type="Label" parent="HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "TExt"
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_hixfk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fpkmj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jv3tk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xpxr2")
+text = "Start"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_hixfk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fpkmj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jv3tk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xpxr2")
+text = "X"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1y2jjay470or"]
+
+[ext_resource type="Script" path="res://screen.gd" id="1_0a48i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umfii"]
+bg_color = Color(0.109804, 0.137255, 0.172549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oh5xf"]
+bg_color = Color(0.745098, 0.745098, 0.745098, 0.0235294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx1dm"]
+bg_color = Color(0, 0, 0, 0.129412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h2dn"]
+bg_color = Color(0, 0, 0, 0.0588235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r312u"]
+bg_color = Color(0, 0, 0, 0.176471)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_163k7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0a48i")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 500.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_umfii")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 500.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oh5xf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_wx1dm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3h2dn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r312u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_163k7")
+text = "Auto-Scan"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "layers: "
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "2"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
