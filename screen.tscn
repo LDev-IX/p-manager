@@ -56,6 +56,16 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="AddCustomButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_wx1dm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3h2dn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r312u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_163k7")
+text = "Add custom to list"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -77,4 +87,5 @@ text = "layers: "
 layout_mode = 2
 text = "2"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/AddCustomButton" to="." method="_on_add_custom_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

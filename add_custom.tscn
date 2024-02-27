@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://xhc3bke8awe"]
+
+[ext_resource type="Script" path="res://add_custom.gd" id="1_6284d"]
+
+[node name="AddCustom" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6284d")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open File(s)"
+initial_position = 2
+size = Vector2i(540, 340)
+visible = true
+ok_button_text = "Open"
+dialog_close_on_escape = false
+file_mode = 1
+access = 2
+show_hidden_files = true
+
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="files_selected" from="FileDialog" to="." method="_on_file_dialog_files_selected"]
